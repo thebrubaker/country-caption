@@ -1,0 +1,47 @@
+body { 
+	padding-top: 50px; 
+}
+
+#reactions {
+	text-align: center;
+}
+
+.caption-section {
+	margin-bottom: 20px;
+}
+
+.vertical-center {
+	min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+	min-height: 100vh; /* These two lines are counted as one :-)       */
+
+	display: flex;
+	align-items: center;
+}
+
+.jumbotron {
+	text-align: center;
+	margin-top: -50px;
+}
+
+#canvas {
+	width: 100%;
+	max-width: 500px;
+}
+
+.reaction-entry {
+	padding: 5px;
+	border: 1px solid #C8C8C8;
+	border-radius: 5px;
+	margin-bottom: 30px;
+	img {
+		margin-bottom: 5px;
+	}
+}
+
+.pagination-row {
+	text-align: center;
+}
+
+#share-link {
+	width: 100%;
+}
