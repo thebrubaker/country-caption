@@ -1,5 +1,6 @@
 /bootstrap/compiled.php
 /vendor
+/public/images/memes/customized
 composer.phar
 composer.lock
 .env.*.php

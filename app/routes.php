@@ -95,6 +95,13 @@ Route::group(['before' => ['auth|admin']], function() {
 
 });
 
+// /**
+//  * Used for testing
+//  */
+// Route::get('test', function() {
+
+// });
+
 /**
  * Sessions - Login / Logout
  */
