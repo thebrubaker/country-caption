@@ -3,6 +3,9 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- Facebook App ID -->
+	<meta property="fb:app_id" content="436270626522542"/>
 	
 	<title>Country Caption Challenge</title>
 
@@ -10,7 +13,9 @@
 	<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
 	
 	<!-- Main Stylesheet -->
-	<link rel="stylesheet" href="../css/style.css">
+	<link rel="stylesheet" href="/css/style.css">
+	
+	
 
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!--[if lt IE 9]>
@@ -20,9 +25,22 @@
 
 </head>
 <body>
+
+	<script src="/js/facebook.js"></script>
+	
 	@include('layouts.partials.nav')
 	@include('flash::message')
 	@yield('content')
+
+	<!-- <footer class="footer">
+		<div class="container">
+			<div class="row">
+				<p>
+					This contest is only open to residents of Mississippi. Must be between 13 and 18 years old. <a href="#">Terms and Conditions</a>
+				</p>
+			</div>
+		</div>
+	</footer> -->
 	
 	<!-- jQuery -->
 	<script src="//code.jquery.com/jquery.js"></script>

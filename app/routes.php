@@ -11,32 +11,104 @@
 |
 */
 
+/**
+ * Pages - Home / Terms
+ */
 Route::get('/', [
-	'as' => 'home_path',
+	'as' => 'home',
 	'uses' => 'HomeController@index'	
 ]);
 
-Route::get('/customize/{filename}', [
-	'as' => 'customize_path',
-	'uses' => 'CustomizeController@create'
+Route::get('/terms', [
+	'as' => 'terms',
+	'uses' => 'HomeController@showTerms'	
 ]);
 
-Route::post('/customize/{filename}', [
-	'as' => 'customize_path',
-	'uses' => 'CustomizeController@store'
+/**
+ * Memes - Create / Edit / Delete
+ */
+Route::get('/memes/create/{filename}', [
+	'as' => 'memes.create',
+	'uses' => 'MemeController@create'
 ]);
 
-Route::get('/reactions/popular', [
-	'as' => 'popular_path',
-	'uses' => 'ReactionsController@showPopular'
+Route::post('/memes/create/{filename}', [
+	'as' => 'memes.create',
+	'uses' => 'MemeController@store'
 ]);
 
-Route::get('/reactions/view', [
-	'as' => 'reactions_path',
-	'uses' => 'ReactionsController@show'
+/**
+ * Memes - Show / Popular / Most Recent / Owned Memes
+ */
+Route::get('/memes/show/{slug}', [
+	'as' => 'memes.show',
+	'uses' => 'MemeController@show'
 ]);
 
-Route::get('test', [
-	'as' => 'test_path',
-	'uses' => 'HomeController@test'
+Route::get('/memes/popular', [
+	'as' => 'memes.popular',
+	'uses' => 'MemeController@showPopular'
 ]);
+
+Route::get('/memes/owned', [
+	'as' => 'memes.owned',
+	'uses' => 'MemeController@showOwned'
+]);
+
+/**
+ * Memes - Like / Unlike
+ */
+Route::get('/memes/like/{slug}', [
+	'as' => 'memes.like',
+	'uses' => 'MemeController@like'
+]);
+
+Route::get('/memes/unlike/{slug}', [
+	'as' => 'memes.unlike',
+	'uses' => 'MemeController@unLike'
+]);
+
+/**
+ * Admin - Review / Approve / Deny / All
+ */
+Route::group(['before' => ['auth|admin']], function() {
+
+	Route::get('/admin/review', [
+		'as' => 'admin.review',
+		'uses' => 'AdminController@review'
+	]);
+
+	Route::get('/admin/approve/{slug}', [
+		'as' => 'admin.approve',
+		'uses' => 'AdminController@approve'
+	]);
+
+	Route::get('/admin/deny/{slug}', [
+		'as' => 'admin.deny',
+		'uses' => 'AdminController@deny'
+	]);
+
+	Route::get('/admin/all', [
+		'as' => 'admin.all',
+		'uses' => 'AdminController@all'
+	]);
+
+});
+
+/**
+ * Sessions - Login / Logout
+ */
+// Route::get('/login', [
+// 	'as' => 'login',
+// 	'uses' => 'SessionsController@create'	
+// ]);
+
+// Route::post('/login', [
+// 	'as' => 'login',
+// 	'uses' => 'SessionsController@store'	
+// ]);
+
+// Route::get('/logout', [
+// 	'as' => 'logout',
+// 	'uses' => 'SessionsController@logout'	
+// ]);

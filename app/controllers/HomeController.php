@@ -1,6 +1,7 @@
 <?php
 
-use Rescue\ReactionImage\ReactionImage;
+use Rescue\Memes\Meme;
+use Rescue\Users\User;
 
 class HomeController extends BaseController {
 
@@ -24,28 +25,15 @@ class HomeController extends BaseController {
 
 	public function index()
 	{
-		$reactionImages = ReactionImage::getAllImages();
+		// $reactionImages = ReactionImage::getAllImages();
 
-		return View::make('home.index', ['reactionImages' => $reactionImages]);
+		// return View::make('home.index', ['reactionImages' => $reactionImages]);
+
+		$triggerImage = Config::get('memes.triggerImage');
+
+		$memeTemplates = Meme::getTemplates();
+
+		return View::make('pages.home', compact('triggerImage', 'memeTemplates'));
 	}
 
-	public function customizeReaction($filename)
-	{
-
-		$reaction = ReactionImage::getByFilename($filename);
-
-		return View::make('layouts.home.customize', ['reaction' => $reaction]);
-
-	}
-
-	public function saveReaction($filename)
-	{
-
-		$data = $_POST['imagedata'];
-
-		$image = Image::make($data);
-
-		$image->save('images/reactions/customized/test.jpg');
-
-	}
 }

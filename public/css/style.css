@@ -1,11 +1,15 @@
 body {
-  padding-top: 50px; }
+  padding-top: 50px;
+  position: relative; }
 
 #reactions {
   text-align: center; }
 
 .caption-section {
   margin-bottom: 20px; }
+  .caption-section img {
+    margin-left: auto;
+    margin-right: auto; }
 
 .vertical-center {
   min-height: 100%;
@@ -36,5 +40,12 @@ body {
 
 #share-link {
   width: 100%; }
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  background-color: black; }
 
 /*# sourceMappingURL=style.css.map */

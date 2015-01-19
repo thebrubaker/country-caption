@@ -41,7 +41,7 @@ Route::filter('auth', function()
 		{
 			return Response::make('Unauthorized', 401);
 		}
-		return Redirect::guest('login');
+		return Redirect::home();
 	}
 });
 
@@ -49,6 +49,16 @@ Route::filter('auth', function()
 Route::filter('auth.basic', function()
 {
 	return Auth::basic();
+});
+
+Route::filter('admin', function() 
+{
+	if (!Auth::user()->isAdmin())
+	{
+		Flash::overlay('You are not an admin.');
+
+		return Redirect::home();
+	}
 });
 
 /*
