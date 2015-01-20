@@ -4,15 +4,16 @@
 
 <header class="jumbotron vertical-center">
 	<div class="container">
-		<h1>Country Caption Challenge</h1>
-		<p>Post your best meme reaction to win a <a href="#">Down And Dirty Custom Camo Xbox One</a>.</p>
+		<h1><img src="../images/country_caption_logo.png" alt="Country Caption Challenge" class="img-responsive"></h1>
+		<p>Post your best meme reaction to <strong>win a Down And Dirty Custom Camo Xbox One</strong></p>
+		<img src="../images/xbox_one.png" alt="Xbox One Prize" class="img-responsive">
 	</div>
 </header>
 
 <section id="caption-content" class="container">
 	<div class="row caption-section">
 		<div class="col-sm-12">
-			<h1>When your little brothers think it's a good idea to play with the paint...</h1>
+			<h1>{{ Config::get('memes.triggerCaption') }}</h1>
 			<img class="img-responsive" src="{{ $triggerImage }}" alt="Landscape">
 		</div>
 	</div>

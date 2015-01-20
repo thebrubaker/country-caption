@@ -7,10 +7,13 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="{{url()}}">Country Caption Challenge</a>
+			<a class="navbar-brand" href="{{url()}}">
+				<img src="{{url('images/dd_logo.png')}}" alt="Down and Dirty South" class="img-responsive">
+			</a>
 		</div>
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
+				<li>{{ link_to_route('home', 'Home') }}</li>
 				<li>{{ link_to_route('memes.popular', 'Popular') }}</li>
 				@if(Auth::user())
 					<li>{{ link_to_route('memes.owned', 'My Memes') }}</li>

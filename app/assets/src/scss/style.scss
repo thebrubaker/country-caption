@@ -1,10 +1,129 @@
-body { 
-	padding-top: 50px;
-	position: relative;
+$color-primary: #fbb11c;
+$color-primary-hover: #E79D09;
+$color-secondary: #632700;
+$color-secondary-hover: #632700;
+
+/* BODY */
+
+	body { 
+		padding-top: 81px;
+		position: relative;
+		font-family: 'Oswald', sans-serif;
+		text-transform: uppercase;
+		background: url(../images/wood_bg_tile.jpg);
+		color: white;
+		a {
+			color: $color-primary;
+		}
+		a:hover, a:focus {
+			color: $color-primary-hover;
+		}
+	}
+
+	.btn-primary {
+		background-color: $color-primary;
+		border-color: $color-primary;
+		color: $color-secondary;
+	}
+
+	.btn-primary:hover, .btn-primary:focus {
+		background-color: $color-primary-hover;
+		border-color: $color-primary-hover;
+	}
+
+	#share-link {
+		color: #777;
+		width: 100%;
+	}
+
+	.badge {
+		background-color: white;
+		color: $color-secondary;
+	}
+
+	.modal-content {
+		color: #333;
+	}
+
+/* END BODY */
+
+/* NAVBAR */
+
+	.navbar-inverse {
+		background-color: $color-primary;
+		border-color: $color-primary;
+		.navbar-nav > li > a {
+			color: $color-secondary;
+			font-weight: 700;
+		}
+		.navbar-nav > span {
+			color: white;
+			font-size: 16px;
+		}
+		.navbar-nav>li>a {
+			padding-top: 30px;
+			padding-bottom: 30px;
+		}
+		.navbar-toggle {
+			margin-top: 22px;
+			border-color: white;
+		}
+		.navbar-toggle:hover, .navbar-toggle:focus {
+			background-color: $color-primary-hover;
+		}
+		.navbar-collapse {
+			border-color: white;
+		}
+	}
+
+
+	.navbar-right .navbar-brand {
+		padding-top: 30px;
+		padding-bottom: 30px;
+	}
+
+
+	.navbar-header {
+		.navbar-brand {
+			height: 80px;
+		}
+		.navbar-brand > img {
+			height: 100%;
+		}
+	}
+
+/* END NAVBAR */
+
+/* HOME PAGE */
+
+.jumbotron {
+	text-align: center;
+	margin-top: -81px;
+	background: url(../images/great_plain.jpg);
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	.container {
+		margin-top: 130px;
+	}
+	p {
+		color: white;
+		font-weight: 300;
+		font-size: 23px;
+	}
+	img {
+		margin: auto;
+	}
 }
 
 #reactions {
 	text-align: center;
+}
+
+#caption-content, #memestage {
+	img, #canvas {
+		border: white 5px solid;
+	}
 }
 
 .caption-section {
@@ -12,6 +131,10 @@ body {
 	img {
 		margin-left: auto;
 		margin-right: auto;
+	}
+	h1 {
+		color: white;
+		text-transform: initial;
 	}
 }
 
@@ -23,10 +146,7 @@ body {
 	align-items: center;
 }
 
-.jumbotron {
-	text-align: center;
-	margin-top: -50px;
-}
+/* SHOW MEME PAGE */
 
 #canvas {
 	width: 100%;
@@ -34,22 +154,15 @@ body {
 }
 
 .reaction-entry {
-	padding: 5px;
-	border: 1px solid #C8C8C8;
-	border-radius: 5px;
+	border: 0px;
 	margin-bottom: 30px;
 	img {
 		margin-bottom: 5px;
 	}
 }
 
-.pagination-row {
-	text-align: center;
-}
 
-#share-link {
-	width: 100%;
-}
+
 
 .footer {
 	position: absolute;
@@ -58,3 +171,35 @@ body {
 	height: 60px;
 	background-color: black;
 }
+
+/* PAGINATION */
+
+	.pagination-row {
+		text-align: center;
+	}
+
+	.pagination>.disabled>span, .pagination>.disabled>span:hover, .pagination>.disabled>span:focus, .pagination>.disabled>a, .pagination>.disabled>a:hover, .pagination>.disabled>a:focus {
+		color: #999;
+		background-color: #fff;
+		border-color: #ddd;
+	}
+
+	.pagination>.active>a, .pagination>.active>span, .pagination>.active>a:hover, .pagination>.active>span:hover, .pagination>.active>a:focus, .pagination>.active>span:focus {
+		color: #fff;
+		background-color: $color-primary;
+		border-color: $color-primary;
+	}
+
+	.pagination>li>a, .pagination>li>span {
+		color: #555;
+		background-color: #fff;
+		border: 1px solid #ddd;
+	}
+
+	.pagination>li>a:hover, .pagination>li>span:hover, .pagination>li>a:focus, .pagination>li>span:focus {
+		color: #333;
+		background-color: #eee;
+		border-color: #ddd;
+	}
+
+/* END PAGINATION */

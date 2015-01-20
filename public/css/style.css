@@ -1,15 +1,99 @@
+/* BODY */
 body {
-  padding-top: 50px;
-  position: relative; }
+  padding-top: 81px;
+  position: relative;
+  font-family: 'Oswald', sans-serif;
+  text-transform: uppercase;
+  background: url(../images/wood_bg_tile.jpg);
+  color: white; }
+  body a {
+    color: #fbb11c; }
+  body a:hover, body a:focus {
+    color: #E79D09; }
+
+.btn-primary {
+  background-color: #fbb11c;
+  border-color: #fbb11c;
+  color: #632700; }
+
+.btn-primary:hover, .btn-primary:focus {
+  background-color: #E79D09;
+  border-color: #E79D09; }
+
+#share-link {
+  color: #777;
+  width: 100%; }
+
+.badge {
+  background-color: white;
+  color: #632700; }
+
+.modal-content {
+  color: #333; }
+
+/* END BODY */
+/* NAVBAR */
+.navbar-inverse {
+  background-color: #fbb11c;
+  border-color: #fbb11c; }
+  .navbar-inverse .navbar-nav > li > a {
+    color: #632700;
+    font-weight: 700; }
+  .navbar-inverse .navbar-nav > span {
+    color: white;
+    font-size: 16px; }
+  .navbar-inverse .navbar-nav > li > a {
+    padding-top: 30px;
+    padding-bottom: 30px; }
+  .navbar-inverse .navbar-toggle {
+    margin-top: 22px;
+    border-color: white; }
+  .navbar-inverse .navbar-toggle:hover, .navbar-inverse .navbar-toggle:focus {
+    background-color: #E79D09; }
+  .navbar-inverse .navbar-collapse {
+    border-color: white; }
+
+.navbar-right .navbar-brand {
+  padding-top: 30px;
+  padding-bottom: 30px; }
+
+.navbar-header .navbar-brand {
+  height: 80px; }
+.navbar-header .navbar-brand > img {
+  height: 100%; }
+
+/* END NAVBAR */
+/* HOME PAGE */
+.jumbotron {
+  text-align: center;
+  margin-top: -81px;
+  background: url(../images/great_plain.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat; }
+  .jumbotron .container {
+    margin-top: 130px; }
+  .jumbotron p {
+    color: white;
+    font-weight: 300;
+    font-size: 23px; }
+  .jumbotron img {
+    margin: auto; }
 
 #reactions {
   text-align: center; }
+
+#caption-content img, #caption-content #canvas, #memestage img, #memestage #canvas {
+  border: white 5px solid; }
 
 .caption-section {
   margin-bottom: 20px; }
   .caption-section img {
     margin-left: auto;
     margin-right: auto; }
+  .caption-section h1 {
+    color: white;
+    text-transform: initial; }
 
 .vertical-center {
   min-height: 100%;
@@ -19,27 +103,16 @@ body {
   display: flex;
   align-items: center; }
 
-.jumbotron {
-  text-align: center;
-  margin-top: -50px; }
-
+/* SHOW MEME PAGE */
 #canvas {
   width: 100%;
   max-width: 500px; }
 
 .reaction-entry {
-  padding: 5px;
-  border: 1px solid #C8C8C8;
-  border-radius: 5px;
+  border: 0px;
   margin-bottom: 30px; }
   .reaction-entry img {
     margin-bottom: 5px; }
-
-.pagination-row {
-  text-align: center; }
-
-#share-link {
-  width: 100%; }
 
 .footer {
   position: absolute;
@@ -47,5 +120,31 @@ body {
   width: 100%;
   height: 60px;
   background-color: black; }
+
+/* PAGINATION */
+.pagination-row {
+  text-align: center; }
+
+.pagination > .disabled > span, .pagination > .disabled > span:hover, .pagination > .disabled > span:focus, .pagination > .disabled > a, .pagination > .disabled > a:hover, .pagination > .disabled > a:focus {
+  color: #999;
+  background-color: #fff;
+  border-color: #ddd; }
+
+.pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus {
+  color: #fff;
+  background-color: #fbb11c;
+  border-color: #fbb11c; }
+
+.pagination > li > a, .pagination > li > span {
+  color: #555;
+  background-color: #fff;
+  border: 1px solid #ddd; }
+
+.pagination > li > a:hover, .pagination > li > span:hover, .pagination > li > a:focus, .pagination > li > span:focus {
+  color: #333;
+  background-color: #eee;
+  border-color: #ddd; }
+
+/* END PAGINATION */
 
 /*# sourceMappingURL=style.css.map */

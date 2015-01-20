@@ -19,6 +19,13 @@
 			<h3>Step 2. Paste the link in the comments of this Facebook post:</h3>
 			<a href="#" >Down and Dirty Facebook Post Giveaway</a>
 			<h3>Rate This Reaction</h3>
+			@if(Auth::user()->isAdmin())
+				@if($meme->approved)
+					<a href="{{ url('admin/deny/' . $meme->slug) }}" class="btn btn-danger">Deny</a>
+				@else
+					<a href="{{ url('admin/approve/' . $meme->slug) }}" class="btn btn-success">Approve</a>
+				@endif
+			@endif
 			@if(!Auth::user())
 				<a href="{{ url('memes/like/' . $meme->slug) }}" class="btn btn-primary">Like</a>
 			@elseif(!$meme->users->find(Auth::user()->id))
@@ -27,14 +34,6 @@
 				<a href="{{ url('memes/unlike/' . $meme->slug) }}" class="btn btn-primary">Unlike</a>
 			@endif
 			<span><span class="badge">{{$meme->users()->count()}}</span> people like this</span>
-
-			@if(Auth::user()->isAdmin())
-				@if($meme->approved)
-					<a href="{{ url('admin/deny/' . $meme->slug) }}" class="btn btn-danger">Deny</a>
-				@else
-					<a href="{{ url('admin/approve/' . $meme->slug) }}" class="btn btn-success">Approve</a>
-				@endif
-			@endif
 		</div>
 	</div>
 </section>

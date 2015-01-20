@@ -2,10 +2,10 @@
 
 @section('content')
 
-<div id="caption-content" class="container">
+<div id="caption-content" class="container nav-fix">
 	<div class="row caption-section">
 		<div class="col-sm-12">
-			<h1>That moment when your little brother ruins the hunt.</h1>
+			<h1>{{ Config::get('memes.triggerCaption') }}</h1>
 			<img class="img-responsive" src="{{ $triggerImage }}" alt="Landscape">
 		</div>
 	</div>
@@ -17,18 +17,9 @@
 		</div>
 		<div class="row">
 			@foreach($memes as $meme)
-			<div class="col-sm-4 col-xs-6">
+			<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
 				<div class="reaction-entry">
 					<img src="{{ url($meme->file_path) }}" class="img-responsive">
-					<a href="{{ url('memes/show/' . $meme->slug) }}" class="btn btn-primary">View</a>
-					@if(!Auth::user())
-					<a href="{{ url('memes/like/' . $meme->slug) }}" class="btn btn-primary">Like</a>
-					@elseif(!$meme->users->find(Auth::user()->id))
-					<a href="{{ url('memes/like/' . $meme->slug) }}" class="btn btn-primary">Like</a>
-					@else
-					<a href="{{ url('memes/unlike/' . $meme->slug) }}" class="btn btn-primary">Unlike</a>
-					@endif
-					<span><span class="badge">{{$meme->users()->count()}}</span> people like this</span>
 					@if(Auth::user())
 						@if(Auth::user()->isAdmin())
 							@if($meme->approved)
@@ -38,6 +29,16 @@
 							@endif
 						@endif
 					@endif
+					<a href="{{ url('memes/show/' . $meme->slug) }}" class="btn btn-primary">View</a>
+					@if(!Auth::user())
+					<a href="{{ url('memes/like/' . $meme->slug) }}" class="btn btn-primary">Like</a>
+					@elseif(!$meme->users->find(Auth::user()->id))
+					<a href="{{ url('memes/like/' . $meme->slug) }}" class="btn btn-primary">Like</a>
+					@else
+					<a href="{{ url('memes/unlike/' . $meme->slug) }}" class="btn btn-primary">Unlike</a>
+					@endif
+					<span><span class="badge">{{$meme->users()->count()}}</span> people like this</span>
+					
 				</div>
 			</div>
 			@endforeach

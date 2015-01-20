@@ -11,9 +11,10 @@
 		</div>
 		<div class="row">
 			@foreach($memes as $meme)
-			<div class="col-sm-4 col-xs-6">
+			<div class="col-md-4 col-sm-6 col-xs-12">
 				<div class="reaction-entry">
 					<img src="{{ url($meme->file_path) }}" class="img-responsive">
+					<a href="{{ url('memes/show/' . $meme->slug) }}" class="btn btn-primary">View</a>
 					@if($meme->approved)
 						<a href="{{ url('admin/deny/' . $meme->slug) }}" class="btn btn-danger">Deny</a>
 					@else
