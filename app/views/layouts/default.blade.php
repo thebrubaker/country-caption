@@ -13,7 +13,7 @@
 	<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
 	
 	<!-- Main Stylesheet -->
-	<link rel="stylesheet" href="/css/style.css">
+	<link rel="stylesheet" href="css/style.css">
 	
 	<!-- Oswald Font from Google Fonts -->
 	<link href='http://fonts.googleapis.com/css?family=Oswald:400,700,300' rel='stylesheet' type='text/css'>
@@ -28,7 +28,7 @@
 </head>
 <body>
 
-	<script src="/js/facebook.js"></script>
+	<script src="js/facebook.js"></script>
 	
 	@include('layouts.partials.nav')
 	@include('flash::message')

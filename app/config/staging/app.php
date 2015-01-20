@@ -26,7 +26,7 @@ return array(
 	|
 	*/
 
-	'url' => 'http://localhost',
+	'url' => 'http://sndbx.rescuedev.com/countrycaptionchallenge/public/',
 
 	/*
 	|--------------------------------------------------------------------------
