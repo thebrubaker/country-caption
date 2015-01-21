@@ -1,4 +1,4 @@
-/* BODY */
+/* MISC */
 body {
   padding-top: 81px;
   position: relative;
@@ -11,15 +11,6 @@ body {
   body a:hover, body a:focus {
     color: #E79D09; }
 
-.btn-primary {
-  background-color: #fbb11c;
-  border-color: #fbb11c;
-  color: #632700; }
-
-.btn-primary:hover, .btn-primary:focus {
-  background-color: #E79D09;
-  border-color: #E79D09; }
-
 #share-link {
   color: #777;
   width: 100%; }
@@ -31,7 +22,24 @@ body {
 .modal-content {
   color: #333; }
 
+.alert {
+  margin: 10px 0px; }
+
 /* END BODY */
+/* BUTTONS */
+.btn-primary {
+  background-color: #fbb11c;
+  border-color: #fbb11c;
+  color: #632700; }
+
+.btn-primary:hover, .btn-primary:focus {
+  background-color: #E79D09;
+  border-color: #E79D09; }
+
+@media (max-width: 768px) {
+  #reactions .btn-primary {
+    font-size: 12px; } }
+/* END BUTTONS */
 /* NAVBAR */
 .navbar-inverse {
   background-color: #fbb11c;
@@ -62,6 +70,10 @@ body {
 .navbar-header .navbar-brand > img {
   height: 100%; }
 
+@media (max-width: 767px) {
+  .navbar-inverse .navbar-nav > li > a {
+    padding-top: 10px;
+    padding-bottom: 10px; } }
 /* END NAVBAR */
 /* HOME PAGE */
 .jumbotron {
@@ -114,6 +126,37 @@ body {
   .reaction-entry img {
     margin-bottom: 5px; }
 
+.tobacco-row {
+  border-top: 1px solid white;
+  margin: 60px 0px;
+  padding-top: 60px; }
+  .tobacco-row p {
+    font-size: 24px;
+    font-weight: 300;
+    text-transform: initial; }
+  .tobacco-row .video-container {
+    position: relative;
+    padding-bottom: 26.25%;
+    padding-top: 30px;
+    height: 0;
+    overflow: hidden; }
+  .tobacco-row .video-container iframe,
+  .tobacco-row .video-container object,
+  .tobacco-row .video-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; }
+
+@media (max-width: 992px) {
+  .tobacco-row .video-container {
+    position: relative;
+    padding-bottom: 66.25%;
+    padding-top: 30px;
+    height: 0;
+    overflow: hidden; } }
+/* END SHOW MEME PAGE*/
 .footer {
   position: absolute;
   bottom: 0;

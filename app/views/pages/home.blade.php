@@ -4,9 +4,9 @@
 
 <header class="jumbotron vertical-center">
 	<div class="container">
-		<h1><img src="../images/country_caption_logo.png" alt="Country Caption Challenge" class="img-responsive"></h1>
-		<p>Post your best meme reaction to <strong>win a Down And Dirty Custom Camo Xbox One</strong></p>
-		<img src="../images/xbox_one.png" alt="Xbox One Prize" class="img-responsive">
+		<h1>{{ HTML::image("images/country_caption_logo.png", "Country Caption Challenge", ['class' => 'img-responsive']) }}</h1>
+		<p>Post your best meme reactions each week for a chance to <strong>win a Down And Dirty Custom Camo Xbox One</strong></p>
+		{{ HTML::image("images/xbox_one.png", "Xbox One Prize", ['class' => 'img-responsive']) }}
 	</div>
 </header>
 
@@ -18,12 +18,13 @@
 		</div>
 	</div>
 	<div id="reactions" class="row">
+		<h3>How would you react?</h3>
 		@foreach($memeTemplates as $meme)
         <div class="col-xs-6 col-md-3 meme-item">
 			<p>
-				<img class="img-responsive" src="{{ '/' . $meme->dirname . '/' . $meme->basename }}" alt="{{ $meme->filename }}">
+				{{ HTML::image('/' . $meme->dirname . '/' . $meme->basename, "Xbox One Prize", ['class' => 'img-responsive']) }}
 			</p>
-        	<p><a href="memes/create/{{ $meme->filename }}" class="btn btn-primary">Post Your Reaction</a></p>
+        	<p><a href="memes/create/{{ $meme->filename }}" class="btn btn-primary">Customize Your Reaction</a></p>
     	</div><!-- /.col-lg-3 -->
     	@endforeach
     </div><!-- /.row -->

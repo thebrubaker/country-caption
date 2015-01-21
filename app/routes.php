@@ -34,6 +34,7 @@ Route::get('/memes/create/{filename}', [
 
 Route::post('/memes/create/{filename}', [
 	'as' => 'memes.create',
+	'before' => 'csrf',
 	'uses' => 'MemeController@store'
 ]);
 
@@ -105,17 +106,20 @@ Route::group(['before' => ['auth|admin']], function() {
 /**
  * Sessions - Login / Logout
  */
+
+Route::post('/sessions/login', [
+	'as' => 'login',
+	'before' => 'csrf',
+	'uses' => 'SessionsController@store'
+]);
+
 // Route::get('/login', [
 // 	'as' => 'login',
 // 	'uses' => 'SessionsController@create'	
 // ]);
 
-// Route::post('/login', [
-// 	'as' => 'login',
-// 	'uses' => 'SessionsController@store'	
-// ]);
 
-// Route::get('/logout', [
-// 	'as' => 'logout',
-// 	'uses' => 'SessionsController@logout'	
-// ]);
+Route::get('/sessions/logout', [
+	'as' => 'logout',
+	'uses' => 'SessionsController@logout'	
+]);

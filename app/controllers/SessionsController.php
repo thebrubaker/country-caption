@@ -41,9 +41,10 @@ class SessionsController extends BaseController {
 
 		}
 
-		$user = User::find('facebook_id', '=', Input::get('id'));
+		// Find if the user already exists
+		$user = User::where('facebook_id', '=', Input::get('facebook_id'))->first();
 
-		// Check if the user exists
+		// Check that the user doesn't exist
 		if(!$user) {
 			// No user found, create a new user object to be filled with data
 			$user = new User;
@@ -58,6 +59,8 @@ class SessionsController extends BaseController {
 		}
 
 		Auth::login($user);
+
+		return Redirect::back();
 	}
 
 	public function logout()

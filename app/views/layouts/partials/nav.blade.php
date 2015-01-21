@@ -24,7 +24,7 @@
 				@endif
 			</ul>
 			<div class="nav navbar-nav navbar-right">
-				<span class="navbar-brand">Live Tobacco Free</span>
+				<span class="navbar-brand hidden-sm">Keep It Country. Keep It Tobacco Free.</span>
 			</div>
 		</div>
 	</div>

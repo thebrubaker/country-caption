@@ -13,7 +13,7 @@
 	<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
 	
 	<!-- Main Stylesheet -->
-	<link rel="stylesheet" href="css/style.css">
+	{{ HTML::style('css/style.css'); }}
 	
 	<!-- Oswald Font from Google Fonts -->
 	<link href='http://fonts.googleapis.com/css?family=Oswald:400,700,300' rel='stylesheet' type='text/css'>
@@ -28,10 +28,12 @@
 </head>
 <body>
 
-	<script src="js/facebook.js"></script>
+	{{ HTML::script('js/facebook.js'); }}
 	
 	@include('layouts.partials.nav')
-	@include('flash::message')
+	<div class="container">
+		@include('flash::message')
+	</div>
 	@yield('content')
 
 	<!-- <footer class="footer">
@@ -43,7 +45,14 @@
 			</div>
 		</div>
 	</footer> -->
-	
+
+	<!-- Facebook Auth Login -->
+	{{Form::open(['url' => 'sessions/login', 'method' => 'post', 'id' => 'facebook_login'])}}
+		<input type="hidden" id="email" name="email">
+		<input type="hidden" id="name" name="name">
+		<input type="hidden" id="facebook_id" name="facebook_id">
+	{{Form::close()}}
+
 	<!-- jQuery -->
 	<script src="//code.jquery.com/jquery.js"></script>
 	

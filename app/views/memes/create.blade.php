@@ -14,6 +14,7 @@
 		</div>
 		<div class="col-sm-3">
 			<form id="customize-form" method="post" action="">
+				{{Form::token();}}
 				<div class="form-group">
 					<label for="top-caption">Top Caption</label>
 					<textarea id="top-caption" class="form-control" rows="2" placeholder="Top Caption"></textarea>
@@ -26,6 +27,7 @@
 				<input type="hidden" id="email" name="email">
 				<input type="hidden" id="name" name="name">
 				<input type="hidden" id="facebook_id" name="facebook_id">
+
 			</form>
 			<div id="status" class="alert alert-danger hidden" role="alert"></div>
 			<button id="submit-form" class="btn btn-large btn-primary" type="submit">Create and Share</button>

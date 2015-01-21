@@ -7,7 +7,7 @@ class MemeController extends \BaseController {
 
 	/**
 	 * Show the form for creating a new resource.
-	 * GET /reactions/create
+	 * GET /meme/create
 	 *
 	 * @return Response
 	 */
@@ -20,16 +20,16 @@ class MemeController extends \BaseController {
 
 	/**
 	 * Store a newly created resource in storage.
-	 * POST /reactions
+	 * POST /meme/create
 	 *
 	 * @return Response
 	 */
 	public function store($filename)
 	{
-		// Find user based on email address from customize meme form
-		$user = User::where('email', '=', Input::get('email'))->first();
+		// Find user from facebook id submitted during meme creation
+		$user = User::where('facebook_id', '=', Input::get('facebook_id'))->first();
 
-		// Check if a user was found
+		// Check if the user doesn't already exist
 		if(!$user) {
 
 			// No user found, create a new user object to be filled with data
@@ -67,6 +67,8 @@ class MemeController extends \BaseController {
 
 		// Log in the user so they are remembered
 		Auth::login($user, true);
+
+		Flash::warning('Your meme reaction is being reviewed.');
 
 		// Redirect to view the newly created Meme
 		return Redirect::to('memes/show/' . $meme->slug);
@@ -109,9 +111,9 @@ class MemeController extends \BaseController {
 		// If there is no current user, send a flash message to login
 		if(!$user) {
 
-			Flash::overlay('You must create a meme in order to vote.');
+			Flash::overlay('You must login through Facebook in order to like a meme.<br /><button id="login_btn" class="btn btn-primary">Login</button>');
 
-			return Redirect::home();
+			return Redirect::back();
 		}
 		
 		// Get the meme from the url
@@ -137,6 +139,7 @@ class MemeController extends \BaseController {
 		// Add this meme to the list of memes this user likes
 		$user->memes()->attach($meme);
 
+		Flash::success('The meme has been liked.');
 		// Head back to where they liked the meme
 		return Redirect::back();
 	}
@@ -185,6 +188,7 @@ class MemeController extends \BaseController {
 		// Remove this meme to the list of memes this user likes
 		$user->memes()->detach($meme);
 
+		Flash::warning('The meme has been unliked.');
 		// Head back to where they unliked the meme
 		return Redirect::back();
 	}

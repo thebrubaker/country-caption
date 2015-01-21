@@ -12,7 +12,7 @@
 	<div id="reactions-list">
 		<div class="row">
 			<div class="col-xs-12">
-				<h2>Popular Reactions</h2>
+				<h2>Popular Memes</h2>
 			</div>
 		</div>
 		<div class="row">
@@ -31,9 +31,9 @@
 					@endif
 					<a href="{{ url('memes/show/' . $meme->slug) }}" class="btn btn-primary">View</a>
 					@if(!Auth::user())
-					<a href="{{ url('memes/like/' . $meme->slug) }}" class="btn btn-primary">Like</a>
+					<a href="{{ url('memes/like/' . $meme->slug) }}" class="btn btn-primary" id="like">Like</a>
 					@elseif(!$meme->users->find(Auth::user()->id))
-					<a href="{{ url('memes/like/' . $meme->slug) }}" class="btn btn-primary">Like</a>
+					<a href="{{ url('memes/like/' . $meme->slug) }}" class="btn btn-primary" id="like">Like</a>
 					@else
 					<a href="{{ url('memes/unlike/' . $meme->slug) }}" class="btn btn-primary">Unlike</a>
 					@endif

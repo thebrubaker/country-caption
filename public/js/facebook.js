@@ -1,5 +1,5 @@
 // This is called with the results from from FB.getLoginStatus().
-function statusChangeCallback(response) {
+function memeStatusChangeCallback(response) {
   console.log('statusChangeCallback');
   console.log(response);
   // The response object is returned with a status field that lets the
@@ -8,7 +8,7 @@ function statusChangeCallback(response) {
   // for FB.getLoginStatus().
   if (response.status === 'connected') {
     // Update the hidden input form fields and submit
-    updateAndSubmit();
+    submitMeme();
   } else {
     // The person is logged into Facebook, but not your app.
     FB.login(function(response){
@@ -25,13 +25,26 @@ function statusChangeCallback(response) {
   }
 }
 
-// This function is called when someone finishes with the Login
-// Button.  See the onlogin handler attached to it in the sample
-// code below.
-function checkLoginState() {
-  FB.getLoginStatus(function(response) {
-    statusChangeCallback(response);
-  });
+// This is called with the results from from FB.getLoginStatus().
+function loginStatusChangeCallback(response) {
+  console.log('statusChangeCallback');
+  console.log(response);
+  // The response object is returned with a status field that lets the
+  // app know the current login status of the person.
+  // Full docs on the response object can be found in the documentation
+  // for FB.getLoginStatus().
+  if (response.status === 'connected') {
+    submitForm();
+  } else {
+    // The person is logged into Facebook, but not your app.
+    FB.login(function(response){
+      if (response.status === 'connected') {
+        submitForm();
+      } else {
+        location.reload();
+      } 
+    }, {scope: 'public_profile, email'});
+  }
 }
 
 window.fbAsyncInit = function() {
@@ -57,9 +70,17 @@ FB.init({
 
 $('#submit-form').click(function() {
   FB.getLoginStatus(function(response) {
-    statusChangeCallback(response);
+    memeStatusChangeCallback(response);
   }, {scope: 'email,user_likes'});
 });
+
+$('#login_btn').click(function() {
+  FB.getLoginStatus(function(response) {
+    loginStatusChangeCallback(response);
+  }, {scope: 'email,user_likes'});
+});
+
+
 
 };
 
@@ -72,9 +93,8 @@ $('#submit-form').click(function() {
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
 
-// Here we run a very simple test of the Graph API after login is
-// successful.  See statusChangeCallback() for when this call is made.
-function updateAndSubmit() {
+// Get facebook identificaton, update meme input fields and submit
+function submitMeme() {
   console.log('Welcome!  Fetching your information.... ');
   FB.api('/me', function(response) {
     console.log(response);
@@ -85,5 +105,17 @@ function updateAndSubmit() {
     var url = canvas.toDataURL('image/jpeg');
     $('#imagedata').val(url);
     document.getElementById("customize-form").submit();
+  });
+}
+
+// Get facebook identificaton, update meme input fields and submit
+function submitForm() {
+  console.log('Welcome!  Fetching your information.... ');
+  FB.api('/me', function(response) {
+    console.log(response);
+    document.getElementById('name').value = response.name;
+    document.getElementById('email').value = response.email;
+    document.getElementById('facebook_id').value = response.id;
+    document.getElementById("facebook_login").submit();
   });
 }
