@@ -13,7 +13,7 @@ function memeStatusChangeCallback(response) {
     // The person is logged into Facebook, but not your app.
     FB.login(function(response){
       if (response.status === 'connected') {
-        updateAndSubmit();
+        submitMeme();
       } else if (response.status === 'not_authorized') {
         document.getElementById('status').innerHTML = 'You must log in to use this app.';
         document.getElementById('status').className = 'alert alert-danger';
@@ -49,7 +49,7 @@ function loginStatusChangeCallback(response) {
 
 window.fbAsyncInit = function() {
 FB.init({
-  appId      : '436270626522542',
+  appId      : '440103766139228',
   cookie     : true,  // enable cookies to allow the server to access 
                       // the session
   xfbml      : true,  // parse social plugins on this page
@@ -69,15 +69,28 @@ FB.init({
 // These three cases are handled in the callback function.
 
 $('#submit-form').click(function() {
-  FB.getLoginStatus(function(response) {
-    memeStatusChangeCallback(response);
-  }, {scope: 'email,user_likes'});
+  console.log('form submitted.');
+  FB.login(function(response){
+      if (response.status === 'connected') {
+        submitMeme();
+      } else if (response.status === 'not_authorized') {
+        document.getElementById('status').innerHTML = 'You must log in to use this app.';
+        document.getElementById('status').className = 'alert alert-danger';
+      } else {
+        document.getElementById('status').innerHTML = 'You must log in with Facebook to use this app.';
+        document.getElementById('status').className = 'alert alert-danger';
+      } 
+    }, {scope: 'public_profile, email'});
 });
 
 $('#login_btn').click(function() {
-  FB.getLoginStatus(function(response) {
-    loginStatusChangeCallback(response);
-  }, {scope: 'email,user_likes'});
+  FB.login(function(response){
+      if (response.status === 'connected') {
+        submitForm();
+      } else {
+        location.reload();
+      } 
+    }, {scope: 'public_profile, email'});
 });
 
 

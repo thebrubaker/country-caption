@@ -26,7 +26,7 @@ return array(
 	|
 	*/
 
-	'url' => 'http://sndbx.rescuedev.com/countrycaptionchallenge/public/',
+	'url' => 'http://downanddirtysouth-dev.rscgdev.com/',
 
 	/*
 	|--------------------------------------------------------------------------

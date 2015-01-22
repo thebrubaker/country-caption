@@ -5,7 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<!-- Facebook App ID -->
-	<meta property="fb:app_id" content="436270626522542"/>
+	<meta property="fb:app_id" content="440103766139228"/>
 	
 	<title>Country Caption Challenge</title>
 

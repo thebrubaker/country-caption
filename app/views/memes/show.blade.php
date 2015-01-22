@@ -15,15 +15,17 @@
 		<div class="col-md-6 col-xs-12">
 			<h2>To enter the Custom Camo Xbox One Giveaway, follow these steps:
 			<h3>Step 1. Copy the link to your meme</h3>
-			<p><input type="text" value="{{url()}}" id="share-link"></p>
+			<p><input type="text" value="{{url('memes/show/' . $meme->slug)}}" id="share-link"></p>
 			<h3>Step 2. Paste the link in the comments of this Facebook post:</h3>
-			<a href="#" >Down and Dirty Facebook Post Giveaway</a>
+			<a href="{{Config::get('memes.facebook_post')}}" target="_blank">Down and Dirty Facebook Post Giveaway</a>
 			<h3>Rate This Reaction</h3>
-			@if(Auth::user()->isAdmin())
-				@if($meme->approved)
-					<a href="{{ url('admin/deny/' . $meme->slug) }}" class="btn btn-danger">Deny</a>
-				@else
-					<a href="{{ url('admin/approve/' . $meme->slug) }}" class="btn btn-success">Approve</a>
+			@if(Auth::user())
+				@if(Auth::user()->isAdmin())
+					@if($meme->approved)
+						<a href="{{ url('admin/deny/' . $meme->slug) }}" class="btn btn-danger">Deny</a>
+					@else
+						<a href="{{ url('admin/approve/' . $meme->slug) }}" class="btn btn-success">Approve</a>
+					@endif
 				@endif
 			@endif
 			@if(!Auth::user())
