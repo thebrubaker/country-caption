@@ -22,6 +22,7 @@
 						<li>{{ link_to_route('admin.all', 'All Memes') }}</li>
 					@endif
 				@endif
+				<li>{{ link_to_route('terms', 'Terms') }}</li>
 			</ul>
 			<div class="nav navbar-nav navbar-right">
 				<span class="navbar-brand hidden-sm">Keep It Country. Keep It Tobacco Free.</span>

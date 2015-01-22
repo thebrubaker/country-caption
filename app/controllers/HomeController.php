@@ -25,15 +25,16 @@ class HomeController extends BaseController {
 
 	public function index()
 	{
-		// $reactionImages = ReactionImage::getAllImages();
-
-		// return View::make('home.index', ['reactionImages' => $reactionImages]);
-
 		$triggerImage = Config::get('memes.triggerImage');
 
 		$memeTemplates = Meme::getTemplates();
 
 		return View::make('pages.home', compact('triggerImage', 'memeTemplates'));
+	}
+
+	public function showTerms()
+	{
+		return View::make('pages.terms');
 	}
 
 }

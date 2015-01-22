@@ -49,7 +49,7 @@
 			</nav>
 		</div>
 	</div>
-	@include('layouts.partials.video')
+	@include('layouts.partials.tobacco')
 </div>
 
 

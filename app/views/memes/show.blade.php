@@ -15,7 +15,7 @@
 		<div class="col-md-6 col-xs-12">
 			<h2>To enter the Custom Camo Xbox One Giveaway, follow these steps:
 			<h3>Step 1. Copy the link to your meme</h3>
-			<p><input type="text" value="{{url('memes/show/' . $meme->slug)}}" id="share-link"></p>
+			<p><input type="text" value="{{url('memes/show/' . $meme->slug)}}" id="share-link" onclick="this.select()"></p>
 			<h3>Step 2. Paste the link in the comments of this Facebook post:</h3>
 			<a href="{{Config::get('memes.facebook_post')}}" target="_blank">Down and Dirty Facebook Post Giveaway</a>
 			<h3>Rate This Reaction</h3>
@@ -38,16 +38,7 @@
 			<span><span class="badge">{{$meme->users()->count()}}</span> people like this</span>
 		</div>
 	</div>
-	<div class="row tobacco-row">
-		<div class="col-md-6 video-container">
-			<iframe src="//www.youtube.com/embed/upRqOSmEMyk" frameborder="0" allowfullscreen></iframe>
-		</div>
-		<div class="col-md-6">
-			<h2>Younger siblings are more likely to use tobacco if an older sibling does.</h2>
-			<p>They are always watching. Learning from you about what it means to grow up Country. So don't let them think living country means using tobacco. Because if you use tobacco, they might too.</p>
-			<a href="" class="btn btn-primary">Share Video</a>
-		</div>
-	</div>
+	@include('layouts.partials.tobacco')
 </section>
 
 
