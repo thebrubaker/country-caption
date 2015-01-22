@@ -172,10 +172,10 @@ window.Meme = function(image, canvas, top, bottom) {
 
 		// Set up text variables
 		context.fillStyle = 'white';
-		context.strokeStyle = 'black';
+		context.strokeStyle = '800';
 		context.lineWidth = 2;
 		var fontSize = (canvas.height / 8);
-		context.font = fontSize + 'px Impact';
+		context.font = fontSize + 'px Impact, Coda';
 		context.textAlign = 'center';
 
 		// Draw them!

@@ -15,8 +15,9 @@
 	<!-- Main Stylesheet -->
 	{{ HTML::style('css/style.css'); }}
 	
-	<!-- Oswald Font from Google Fonts -->
+	<!-- Google Fonts -->
 	<link href='http://fonts.googleapis.com/css?family=Oswald:400,700,300' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Coda:800' rel='stylesheet' type='text/css'>
 	
 
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->

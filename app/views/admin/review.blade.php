@@ -31,7 +31,6 @@
 			</nav>
 		</div>
 	</div>
-	@include('layouts.partials.video')
 </div>
 
 @stop
