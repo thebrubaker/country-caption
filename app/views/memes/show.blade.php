@@ -15,7 +15,7 @@
 		<div class="col-md-6 col-xs-12">
 			<h2>To enter the Custom Camo Xbox One Giveaway, follow these steps:
 			<h3>Step 1. Copy the link to your meme</h3>
-			<p><input type="text" value="{{url('memes/show/' . $meme->slug)}}" id="share-link" onclick="this.select()"></p>
+			<p><input type="text" value="{{ url($meme->file_path) }}" id="share-link" onclick="this.select()"></p>
 			<h3>Step 2. Paste the link in the comments of this Facebook post:</h3>
 			<a href="{{Config::get('memes.facebook_post')}}" target="_blank">Down and Dirty Facebook Post Giveaway</a>
 			<h3>Rate This Reaction</h3>

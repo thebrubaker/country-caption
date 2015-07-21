@@ -28,7 +28,7 @@ $env = $app->detectEnvironment(array(
 
 	'local' => array('homestead'),
 	'development' => array('torg'),
-	'production' => array('')
+	'production' => array('doris')
 
 ));
 
