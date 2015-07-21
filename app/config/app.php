@@ -26,7 +26,7 @@ return array(
 	|
 	*/
 
-	'url' => 'http://downanddirtysouth-dev.rscgdev.com/',
+	'url' => 'localhost',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -78,7 +78,7 @@ return array(
 	|
 	*/
 
-	'key' => 'zdKlnGe4UGyubADBnVwSJndjFC2Zx4QY',
+	'key' => getenv('KEY'),
 
 	'cipher' => MCRYPT_RIJNDAEL_128,
 
